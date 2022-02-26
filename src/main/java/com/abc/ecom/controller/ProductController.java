@@ -2,6 +2,8 @@ package com.abc.ecom.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,54 +19,71 @@ import org.springframework.web.bind.annotation.RestController;
 import com.abc.ecom.entity.Product;
 import com.abc.ecom.service.ProductService;
 
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 	
 	@Autowired
 	private ProductService productService;
 	
 	@PostMapping("/save")
-	public void addProduct(@RequestBody Product product) {
-		productService.saveProduct(product);
+	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+		
+		logger.debug("Product Controller - Add Product Called");
+		Product newProduct = productService.saveProduct(product);
+		ResponseEntity<Product> responseEntity = new ResponseEntity<>(newProduct,HttpStatus.CREATED);
+		logger.debug("Product Controller - Add Product Completed");
+		return responseEntity;
 	}
 	
 	@GetMapping("/all")
-	public List<Product> fetchAllProducts() {
-		
-		List<Product> products = productService.getAllProducts();
-		
-		return products;
-	}
+	public List<Product> fetchAllProducts(){
 	
+	 List<Product> products = productService.getAllProducts();
+	 
+	 return products;
+	 
+	}
 	
 	@GetMapping("/get/{pid}")
 	public ResponseEntity<?> fetchProductDetails(@PathVariable("pid") int productId) {
+	
 		Product product = productService.getProductById(productId);
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete/{pid}")
-	public ResponseEntity<?> deleteProduct(@PathVariable("pid") int productId) {
-		productService.deleteProduct(productId);
-		return new ResponseEntity<>("Product Deleted with id: "+productId, HttpStatus.OK);
-	}
-	
-	@PutMapping("/update")
-	public ResponseEntity<Product> modifyProduct(@RequestBody Product product) {
-		Product updatedProduct = productService.updateProduct(product);
-		return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
-	}
-	
 	@GetMapping("/getbyname/{pname}")
-	public ResponseEntity<?> fetchProductDetailsByNane(@PathVariable("pname") String pname) {
-		Product product = productService.getProductByName(pname);
+	public ResponseEntity<?> fetchProductDetails(@PathVariable("pname") String productName) {
+	
+		Product product = productService.getProductByName(productName);
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
 	
 	@GetMapping("/getbycategory/{category}")
-	public ResponseEntity<List<Product>> fetchProductDetailsByCategory(@PathVariable("category") String category) {
+	public ResponseEntity<?> fetchProductDetailsByCategory(@PathVariable("category") String category) {
+	
 		List<Product> products = productService.getProductsByCategory(category);
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}
+	
+	
+	
+	@DeleteMapping("/delete/{pid}")
+	public ResponseEntity<?> deleteProduct(@PathVariable("pid") int productId) {
+	
+	     productService.deleteProduct(productId);
+		return new ResponseEntity<>("Product Deleted with id:" + productId, HttpStatus.OK);
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<Product> modifyProduct(@RequestBody Product product) {
+	
+		Product updatedProduct = productService.updateProduct(product);
+		return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+	}
+	
+	
 }

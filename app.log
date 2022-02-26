@@ -1,0 +1,17 @@
+2022-02-25 09:27:04,458 INFO com.abc.ecom.EcomApplication [restartedMain] Starting EcomApplication using Java 17.0.1 on inlen8520017006 with PID 1604 (C:\Users\madhushm\Downloads\java softwares\stsworspace\workspace-spring-tool-suite-4-4.13.1.RELEASE\ecom\target\classes started by madhushm in C:\Users\madhushm\Downloads\java softwares\stsworspace\workspace-spring-tool-suite-4-4.13.1.RELEASE\ecom)
+2022-02-25 09:27:04,467 DEBUG com.abc.ecom.EcomApplication [restartedMain] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-02-25 09:27:04,467 INFO com.abc.ecom.EcomApplication [restartedMain] No active profile set, falling back to default profiles: default
+2022-02-25 09:27:06,537 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2022-02-25 09:27:06,538 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-25 09:27:06,665 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/ecom] [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-25 09:27:06,904 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-25 09:27:06,975 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-25 09:27:07,190 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-25 09:27:07,342 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-25 09:27:07,713 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-25 09:27:07,756 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-02-25 09:27:08,582 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-25 09:27:09,978 INFO com.abc.ecom.EcomApplication [restartedMain] Started EcomApplication in 6.117 seconds (JVM running for 7.156)
+2022-02-25 09:27:32,370 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/ecom] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-25 09:53:26,195 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(30)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2022-02-25 09:53:26,203 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(30)-127.0.0.1] HikariPool-1 - Shutdown completed.
